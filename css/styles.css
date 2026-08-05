@@ -1,0 +1,1024 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Titan+One&family=Arima:wght@400&family=Lilita+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: #000000eb;
+
+}
+
+.popUp-container{
+    position: fixed;
+    inset: 0; /* ocupa a tela toda */
+    color: #023859;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+.popUp-container.escondido{
+    display: none;
+}
+.popUp-box{
+    background: #023859;
+    color: #e0e0e0;
+    max-width: 480px;
+    height: 520px;
+    padding: 32px 28px;
+    border-radius: 44px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+h2{
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, serif, serif;
+    font-weight: 700;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 3px; /* Texto Reduzido levemente para melhorar a leitura */
+    margin-bottom: 8px; 
+}
+
+.popUp-box, p{
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.6;     
+    color: #E0E0E0;   
+
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;   /* as linhas de texto fiquem centralizadas */
+    gap: 12px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #FFFFFF;
+
+    
+}
+#fecharPopUp{
+    border: none;
+    background: rgba(255, 255, 255, 0.838);
+    margin-top: 12px;
+    width: 84px;
+    height: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, serif, serif;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+nav.nav ul.menu li {
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, serif, serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: rgba(233, 224, 224, 0.867);
+}
+
+header,
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    z-index: 10;
+    padding: 20px 40px;
+}
+
+
+.hero {
+    background-image: url('../public/images/branca.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+
+
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100vh;
+    margin: 0;
+    padding: 24px;
+    overflow: hidden;
+
+
+    /* Para que o texto e botões se sobresaiam no before */
+    .titulo .botao-confira .frame1 {
+        position: relative;
+        z-index: 2;
+
+    }
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.57);
+    z-index: 1;
+}
+
+
+.hero-image {
+    width: 100%;
+    height: 720px;
+    object-fit: cover;
+}
+
+
+.titulo {
+    flex: 1;
+}
+
+.frame1 {
+    position: absolute;
+    bottom: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 31px;
+    max-width: 696px;
+    z-index: 2;
+    margin: 14px;
+}
+
+.hero h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-weight: 400;
+    font-size: 32px;
+    color: #6E97A3;
+    margin: 0;
+}
+
+.hero h2 {
+    font-family: Copperplate, Papyrus, fantasy;
+    color: #FFFFFF;
+    font-size: 48px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+
+}
+
+.hero p {
+    font-size: 16px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    opacity: 0.5;
+    color: #FFFFFF;
+    width: 450px;
+    
+
+}
+
+.botao-explorar {
+    width: 240px;
+    height: 48px;
+    background-color: #000000;
+    border: none;
+    border-radius: 60px;
+    box-shadow: 0px 0px 20px rgba(59, 61, 53, 1);
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffffae;
+    
+    cursor: pointer;
+    margin-left: 68px;
+}
+
+.botao-confira {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 11px;
+    z-index: 3;
+}
+
+.botao-confira span {
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-weight: 100;
+    font-size:24px;
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+
+.vector1 {
+    width: 7.5px;
+    height: 4px;
+}
+
+
+/* Seção Nárnia */
+
+.narnia-section {
+    /* height: 620px; */
+    background-image: url('../public/images/narnia_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+
+
+    width: 100%;
+    max-width: 1800px;
+    height: 720px;
+    margin: 44px;
+    border-radius: 24px !important;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+
+    /* Para que o texto e botões se sobresaiam no before */
+    .narnia-section h2,
+    .narnia-section p,
+    .narnia-section button,
+    .narnia-content {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.narnia-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 24px !important;
+    background-color: rgba(0, 0, 0, 0.57);
+    z-index: 1;
+}
+
+.narnia-section h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-weight: 400;
+    font-size: 32px;
+    color: #feffffb0;
+    margin: 0;
+    position: absolute;
+    bottom: 134px;
+    left: 63px;
+    z-index: 2;
+}
+
+.narnia-section p {
+    color: #ffffff;
+    font-family: 'Georgia, 'Times New Roman', Times, serif', serif;
+    font-size: 16px;
+    /* Letra bem menor e minimalista */
+    font-weight: 300;
+    text-transform: uppercase;
+    /* Todas as letras em maiúsculo */
+    letter-spacing: 5px;
+    /* Bastante espaço entre as letras */
+    opacity: 0.5;
+
+
+    margin: 10px;
+    width: 500px;
+    z-index: 2;
+    line-height: 1.0;
+}
+
+.assistir-btn {
+    width: 199px;
+    height: 38px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0px 0px 35px 0px rgba(255, 255, 255, 0.4), 0px 0px 54px 0px rgba(33, 70, 78, 1);
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #ffffff99;
+    cursor: pointer;
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+/* Seção Entre Mundos */
+
+.entre-mundos {
+    height: 737px;
+    padding: 83px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 32px;
+
+
+    animation: mundosSurgindo;
+    animation-timeline: view();
+}
+
+@keyframes mundosSurgindo {
+    from {
+        opacity: 0;
+        scale: 0.8;
+        transform: translate(-300px);
+    }
+}
+
+
+.titulo-galeria {
+    text-align: center;
+    padding: 0 96px;
+}
+
+.entre-mundos h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-weight: 400;
+    font-size: 60px;
+    color: #023859;
+    margin: 0;
+}
+
+.entre-mundos p {
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #ffffff9e;
+    margin: 0;
+}
+
+.cards-container {
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    overflow: hidden;
+}
+
+.cards-svg,
+img {
+    width: auto;
+    height: 440px;
+    object-fit: contain;
+    border-radius: 44px;
+}
+
+/* Seção Spiderwick Hero */
+.spiderwick-hero video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px !important;
+
+}
+
+.spiderwick-hero {
+    width: 100%;
+    height: 620px;
+    position: relative;
+    /* overflow: hidden; */
+
+    width: 100%;
+    max-width: 1800px;
+    height: 720px;
+    margin: 44px;
+    border-radius: 24px !important;
+    padding: 24px;
+
+    animation: spiderwickSurgindo;
+    animation-timeline: view();
+}
+
+@keyframes spiderwickSurgindo {
+    from {
+        opacity: 0;
+        scale: 0.8;
+    }
+}
+
+.spiderwick-btn {
+    position: absolute;
+    bottom: 23px;
+    left: 53%;
+    transform: translateX(-50%);
+    width: 430px;
+    height: 79px;
+    background-color: rgba(0, 0, 0, 0.45);
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0px 0px 35px 0px rgba(255, 255, 255, 0.4), 0px 0px 54px 0px rgba(33, 70, 78, 1);
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+/* A CAMADA ESCURA ESCURA POR CIMA */
+.spiderwick-hero::before {
+    content: "";
+    position: absolute;
+    /* inset: 0; */
+    background: rgba(0, 0, 0, 0.57);
+    z-index: 1;
+
+    width: 100%;
+    max-width: 1800px;
+    height: 720px;
+    border-radius: 24px !important;
+}
+
+/* PARA O BOTÃO APARECER POR CIMA DA CAMADA ESCURA */
+.spiderwick-btn {
+    position: absolute;
+    z-index: 2;
+}
+
+
+/* Seção Filmes Mais Assistidos */
+
+.mais_assistidos h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-size: 36px;
+    color: #023859;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.filmes-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 40px;
+    margin-bottom: 50px;
+    margin-top: 100vh;
+
+    animation: cardsSurgindo;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
+}
+
+@keyframes cardsSurgindo {
+    from {
+        opacity: 0;
+        scale: .5;
+        transform: translate(-300px);
+    }
+
+}
+
+.filme {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 300px;
+    height: 450px;
+    perspective: 1000px;
+    margin-bottom: 30px;
+
+
+}
+
+.filme img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+
+/* NARNIA SECTION */
+
+.narnia-section {
+    width: 100%;
+    height: 720px;
+    background: url(../public/images/narnia.jpg);
+    background-size: cover;
+    flex: none;
+    order: 3;
+    align-self: stretch;
+    flex-grow: 0;
+    position: relative;
+
+    animation: narniaSurgindo;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
+}
+
+@keyframes narniaSurgindo {
+    from {
+        opacity: 0;
+        scale: .5;
+    }
+
+}
+
+.narnia-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 32px;
+    position: absolute;
+    width: 415px;
+    height: 296px;
+    left: 37px;
+    top: 188px;
+}
+
+.titulo-narnia {
+    width: 415px;
+    height: 140px;
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 55px;
+    line-height: 63px;
+    color: #023859;
+    margin: 0;
+    flex: none;
+    flex-grow: 0;
+}
+
+.narnia-content h1,
+.narnia-content h2,
+.narnia-content p {
+    width: 343px;
+    height: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 40px;
+    color: #ffffff;
+    margin: 0;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+}
+
+.explorar-reino {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 32px 0px;
+    gap: 10px;
+    position: absolute;
+    width: 560.17px;
+    right: 37px;
+    top: 297.24px;
+    background: rgba(255, 255, 255, 0.42);
+    border-radius: 40px;
+}
+
+.titulo-explorar {
+    width: 560.17px;
+    height: 45.56px;
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-size: 25px;
+    line-height: 29px;
+    text-align: center;
+    color: rgba(2, 56, 89, 0.8);
+}
+
+.frame6 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 32px;
+    gap: 32px;
+    width: 560.17px;
+    height: 255.2px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.frame3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+    width: 142.58px;
+    height: 254.82px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.image1 {
+    width: 142.58px;
+    height: 210.55px;
+    background: url(../public/images/image.png);
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.filme-titulo {
+    width: 142.58px;
+    height: 28.28px;
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: rgba(40, 39, 39, 0.8);
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.frame5 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+    width: 140.62px;
+    height: 247.35px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.image2 {
+    width: 140.62px;
+    height: 210.92px;
+    background: url(../public/images/image);
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.filme-titulo-2 {
+    width: 140.62px;
+    height: 20.42px;
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: rgba(40, 39, 39, 0.8);
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.frame4 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+    width: 148.97px;
+    height: 255.2px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.image3 {
+    width: 140.62px;
+    height: 210.92px;
+    background: url(../public/images/image);
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.filme-titulo-3 {
+    width: 148.97px;
+    height: 28.28px;
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: rgba(40, 39, 39, 0.8);
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+/* Categorias Filmes */
+.categoria_filmes {
+    width: 100%;
+    padding: 60px 0;
+    background: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.categoria_filmes h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-size: 36px;
+    color: #023859;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.categoria_filmes h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-size: 24px;
+    color: #023859;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.filmes-categorias {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+
+
+.titulo-filme {
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-size: 16px;
+    color: #000000;
+    text-align: center;
+    margin-top: 10px;
+    max-width: 200px;
+}
+
+/* ONDE ENCONTRAR */
+
+.onde-encontrar {
+    padding: 50px 0;
+
+    animation: narniaSurgindo;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
+}
+
+@keyframes narniaSurgindo {
+    from {
+        opacity: 0;
+        filter: blur(15px) grayscale(100%);
+        scale: .5;
+    }
+
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.onde-encontrar h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-size: 48px;
+    color: #023859;
+    margin-bottom: 16px;
+}
+
+.onde-encontrar p {
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-size: 24px;
+    color: #ffffff9b;
+    margin-bottom: 32px;
+}
+
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.filtro {
+    background-color: #376481fb;
+    border: none;
+    border-radius: 9999px;
+    padding: 12px 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-size: 16px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.filtro.ativo {
+    background-color: #023859;
+}
+
+.grade {
+    display: grid;
+    grid-template-columns: repeat(3, 320px);
+    gap: 24px;
+
+    justify-content: center;
+}
+
+.card {
+    /* background-color: rgba(255, 255, 255, 0.2); */
+    border-radius: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    height: 500px;
+    width: 100%;
+    perspective: 1000px;
+    margin-bottom: 30px;
+}
+
+.frente,
+.verso {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+}
+
+.frente {
+    transform: rotateY(0deg);
+}
+
+.icones {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.icones img {
+    width: 50px;
+    height: 50px;
+}
+
+
+.verso {
+    transform: rotateY(180deg);
+    background-color: #023859;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ANIMAÇÃO DO CARD */
+.card:hover .frente {
+    transform: rotateY(-180deg);
+}
+
+.card:hover .verso {
+    transform: rotateY(0deg);
+}
+
+.frente img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /*encolhe a foto de forma proporcional até que ela caiba 100% visível lá dentro */
+}
+
+.frente h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-size: 18px;
+    color: #023859;
+    margin: 10px;
+}
+
+.verso p {
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.verso img {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+
+/* Coraline Footer */
+
+.coraline-footer {
+    position: relative;
+    background: #000000;
+    color: #FFFFFF;
+    padding: 80px;
+    width: 1800px;
+    height: 720px;
+    margin: 44px;
+    border-radius: 44px;
+
+    .coraline-logo {
+        position: absolute;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 8px;
+
+        top: 0;
+        right: 0;
+        margin: 0;
+        width: 700px;
+        height: 720px;
+
+    }
+
+    .coraline-logo video {
+        position: absolute;
+        top: 1px;
+        right: 0;
+
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-top-right-radius: 44px;
+        border-bottom-right-radius: 44px;
+
+    }
+
+    .coraline-Nome img {
+        margin-top: -74px;
+    }
+
+    h2 {
+        color: #ffffff;
+        font-family: 'Georgia, 'Times New Roman', Times, serif', serif;
+        font-size: 18px;
+        /* Letra bem menor e minimalista */
+        font-weight: 300;
+        text-transform: uppercase;
+        /* Todas as letras em maiúsculo */
+        letter-spacing: 5px;
+        /* Bastante espaço entre as letras */
+        opacity: 0.5;
+        /* Meio transparente */
+        margin: 20px auto 0 144px;
+    }
+
+    .coraline-Nome .icones {
+        justify-content: flex-start;
+        margin-left: 268px;
+        margin-top: 118px;
+    }
+
+
+    animation: heroSurgindo;
+    animation-timeline: view();
+}
+
+@keyframes heroSurgindo {
+    from {
+        opacity: 0;
+        scale: 0.8;
+
+    }
+}
