@@ -12,19 +12,21 @@ body {
 
 }
 
-.popUp-container{
+.popUp-container {
     position: fixed;
-    inset: 0; /* ocupa a tela toda */
+    inset: 0;
     color: #023859;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 50;
 }
-.popUp-container.escondido{
+
+.popUp-container.escondido {
     display: none;
 }
-.popUp-box{
+
+.popUp-box {
     background: #023859;
     color: #e0e0e0;
     max-width: 480px;
@@ -38,33 +40,36 @@ body {
     align-items: center;
 
 }
-h2{
+
+h2 {
     font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, serif, serif;
     font-weight: 700;
     font-size: 32px;
     text-transform: uppercase;
-    letter-spacing: 3px; /* Texto Reduzido levemente para melhorar a leitura */
-    margin-bottom: 8px; 
+    letter-spacing: 3px;
+    margin-bottom: 8px;
 }
 
-.popUp-box, p{
+.popUp-box,
+p {
     font-size: 18px;
     font-weight: 300;
-    line-height: 1.6;     
-    color: #E0E0E0;   
+    line-height: 1.6;
+    color: #E0E0E0;
 
 
     display: flex;
     flex-direction: column;
-    text-align: center;   /* as linhas de texto fiquem centralizadas */
+    text-align: center;
     gap: 12px;
     text-transform: uppercase;
     letter-spacing: 5px;
     color: #FFFFFF;
 
-    
+
 }
-#fecharPopUp{
+
+#fecharPopUp {
     border: none;
     background: rgba(255, 255, 255, 0.838);
     margin-top: 12px;
@@ -184,7 +189,7 @@ nav {
     opacity: 0.5;
     color: #FFFFFF;
     width: 450px;
-    
+
 
 }
 
@@ -200,7 +205,7 @@ nav {
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #ffffffae;
-    
+
     cursor: pointer;
     margin-left: 68px;
 }
@@ -220,7 +225,7 @@ nav {
 .botao-confira span {
     font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, Serif, serif;
     font-weight: 100;
-    font-size:24px;
+    font-size: 24px;
     color: #FFFFFF;
     opacity: 0.5;
 }
@@ -289,14 +294,11 @@ nav {
 
 .narnia-section p {
     color: #ffffff;
-    font-family: 'Georgia, 'Times New Roman', Times, serif', serif;
+    font-family: 'Georgia, ' Times New Roman', Times, serif', serif;
     font-size: 16px;
-    /* Letra bem menor e minimalista */
     font-weight: 300;
     text-transform: uppercase;
-    /* Todas as letras em maiúsculo */
     letter-spacing: 5px;
-    /* Bastante espaço entre as letras */
     opacity: 0.5;
 
 
@@ -323,6 +325,13 @@ nav {
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 22px;
+    text-decoration: none;
 }
 
 /* Seção Entre Mundos */
@@ -402,7 +411,6 @@ img {
     width: 100%;
     height: 620px;
     position: relative;
-    /* overflow: hidden; */
 
     width: 100%;
     max-width: 1800px;
@@ -439,6 +447,11 @@ img {
     color: #FFFFFF;
     text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     cursor: pointer;
+
+    align-items: center;
+    text-align: center;
+    padding: 22px;
+    text-decoration: none;
 }
 
 /* A CAMADA ESCURA ESCURA POR CIMA */
@@ -922,8 +935,7 @@ img {
 .frente img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    /*encolhe a foto de forma proporcional até que ela caiba 100% visível lá dentro */
+    object-fit: cover;
 }
 
 .frente h3 {
@@ -956,59 +968,87 @@ img {
     height: 720px;
     margin: 44px;
     border-radius: 44px;
+    overflow: hidden;
+    /* Importante para cortar a imagem nas bordas arredondadas */
+}
 
-    .coraline-logo {
-        position: absolute;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 8px;
 
-        top: 0;
-        right: 0;
-        margin: 0;
-        width: 700px;
-        height: 720px;
+.coraline-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
 
-    }
+}
 
-    .coraline-logo video {
-        position: absolute;
-        top: 1px;
-        right: 0;
 
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-top-right-radius: 44px;
-        border-bottom-right-radius: 44px;
+.coraline-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
 
-    }
-
-    .coraline-Nome img {
-        margin-top: -74px;
-    }
 
     h2 {
         color: #ffffff;
-        font-family: 'Georgia, 'Times New Roman', Times, serif', serif;
+        font-family: 'Georgia', 'Times New Roman', Times, serif;
         font-size: 18px;
-        /* Letra bem menor e minimalista */
         font-weight: 300;
         text-transform: uppercase;
-        /* Todas as letras em maiúsculo */
         letter-spacing: 5px;
-        /* Bastante espaço entre as letras */
         opacity: 0.5;
-        /* Meio transparente */
-        margin: 20px auto 0 144px;
+
+        /* Posicionamento absoluto corrigido */
+        position: absolute;
+        bottom: 124px;
+        left: 32px;
+
     }
 
-    .coraline-Nome .icones {
-        justify-content: flex-start;
-        margin-left: 268px;
-        margin-top: 118px;
+    .botao-coraline {
+        /* Mantém as dimensões e o posicionamento originais */
+        width: 199px;
+        height: 58px;
+        position: absolute;
+        bottom: 48px;
+        left: 144px;
+        z-index: 2;
+        cursor: pointer;
+
+        /* Base do botão: Transição do preto para o azul-marinho profundo */
+        background: radial-gradient(circle, #0a192f 0%, #02060d 100%);
+        border: 2px dashed #102a45;
+        border-radius: 30px;
+
+        /* Brilho da sombra adaptado para tons escuros e misteriosos */
+        box-shadow:
+            0px 0px 25px 0px rgba(16, 42, 69, 0.6),
+            0px 0px 45px 0px rgba(5, 15, 26, 0.9),
+            inset 0 2px 4px rgba(255, 255, 255, 0.05);
+
+        
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-weight: 500;
+        font-size: 13px;
+        color: #e2e8f0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        /* Alinhamento do conteúdo interno */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 0 15px;
+        box-sizing: border-box;
+        transition: all 0.3s ease-in-out;
     }
+
 
 
     animation: heroSurgindo;
@@ -1020,5 +1060,473 @@ img {
         opacity: 0;
         scale: 0.8;
 
+    }
+}
+
+@media (max-width: 480px) {
+
+    /*Regras Gerais*/
+    html,
+    body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Força todos os elementos a respeitarem o tamanho da tela, impedindo que paddings vazem */
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box !important;
+    }
+
+    img,
+    video {
+        object-fit: cover;
+        max-width: 100%;
+        height: 100%;
+        max-height: 800px;
+        border-radius: 0;
+    }
+
+    /*
+       8. Navegação (Navbar)
+       */
+    header,
+    nav {
+        width: calc(100% - 64px);
+        margin: 0 32px;
+        padding: 15px 0;
+        box-sizing: border-box;
+    }
+
+    nav.nav ul.menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+    nav.nav ul.menu li {
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    /*
+       1. Pop-up (Overlay)
+       */
+    .popUp-container {
+        background-color: rgba(0, 0, 0, 0.85);
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .popUp-box {
+        width: 100%;
+        max-width: 100%;
+        margin: auto;
+        height: auto;
+        padding: 30px 20px;
+    }
+
+    /*
+       2. Hero (Frame 1) & Mais Assistidos
+       */
+    .hero {
+        position: relative !important;
+        width: 100% !important;
+        height: 100vh !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .hero::after {
+        border-radius: 0;
+    }
+
+    .titulo {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .frame1 {
+        position: relative;
+        bottom: 80px;
+        left: 0;
+        margin: 0 20px;
+        width: calc(100% - 40px);
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero h2 {
+        font-size: 32px;
+        text-align: left;
+    }
+
+    .hero p {
+        font-size: 13px;
+        text-align: left;
+        width: 100%;
+        line-height: 1.4;
+    }
+
+    .botao-explorar {
+        margin: 20px auto 0 auto;
+        width: 220px;
+        height: 44px;
+        font-size: 14px;
+        align-self: center;
+    }
+
+    .botao-confira {
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .botao-confira span {
+        font-size: 12px;
+        text-align: center;
+        width: 100%;
+    }
+
+    /*
+       3. Cards logo abaixo do Hero
+       */
+    .mais_assistidos {
+        width: 100%;
+        margin-top: 40px !important;
+        box-sizing: border-box;
+        padding: 0 10px;
+    }
+
+    .mais_assistidos h1 {
+        font-size: 24px;
+    }
+
+    .filmes-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-top: 20px;
+        width: 100%;
+        padding: 0;
+    }
+
+    .filme {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 2 / 3;
+        margin-bottom: 0;
+    }
+
+    .filme img {
+        border-radius: 12px;
+    }
+
+    /*
+       4. Nárnia Section
+       */
+    .narnia-section {
+        width: calc(100% - 20px) !important;
+        max-width: 100% !important;
+        height: 600px !important;
+        background: url(../public/images/narniaMobile.png);
+        background-size: cover;
+        background-position: center;
+
+        margin: 40px 10px !important;
+        padding: 20px !important;
+        padding-bottom: 60px !important;
+        box-sizing: border-box;
+        border-radius: 16px !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: relative;
+    }
+
+    .narnia-section h2 {
+        font-size: 24px;
+        position: relative !important;
+        bottom: auto !important;
+        align-items: center;
+        text-align: left;
+        margin: 0 0 10px 0 !important;
+
+    }
+
+    .narnia-section p {
+        display: none;
+    }
+
+    .assistir-btn {
+        position: absolute !important;
+        bottom: 10px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        margin: 0 !important;
+        box-shadow: 0px 0px 35px 0px rgb(159 0 0 / 10%), 0px 0px 14px 0px rgba(33, 70, 78, 1);
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding: 22px;
+        text-decoration: none;
+    }
+
+    /* 5. Categorias Entre Mundos*/
+    .entre-mundos {
+        padding: 40px 10px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        animation: none !important;
+    }
+
+    .titulo-galeria {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+        width: 100%;
+    }
+
+    .entre-mundos h1 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .entre-mundos p {
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        width: 100%;
+        padding: 0;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cards-svg,
+    .cards-container img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 2 / 3;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    /*
+       6. Spiderwick Hero
+       */
+    .spiderwick-hero {
+        width: calc(100% - 20px) !important;
+        max-width: 100% !important;
+        height: 600px !important;
+        /* Nova altura */
+        margin: 40px 10px !important;
+        padding: 20px !important;
+        box-sizing: border-box;
+        border-radius: 16px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .spiderwick-hero::before {
+        height: 100% !important;
+        border-radius: 16px !important;
+    }
+
+    .spiderwick-btn {
+        position: absolute !important;
+        bottom: 24px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 85%;
+        max-width: 300px;
+        height: 55px;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    /*
+       7. Onde Encontrar
+       */
+    .onde-encontrar {
+        padding: 40px 10px;
+        width: 100%;
+        text-align: center;
+        animation: none !important;
+    }
+
+    .onde-encontrar h1 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .onde-encontrar p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .filtros {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .filtro {
+        padding: 10px 18px;
+        font-size: 12px;
+    }
+
+    .onde-encontrar .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .grade {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        width: 100%;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 2 / 3;
+        margin-bottom: 0;
+        border-radius: 12px;
+    }
+
+    .frente h3 {
+        font-size: 13px;
+        text-align: center;
+    }
+
+    .verso p {
+        font-size: 11px;
+        text-align: center;
+    }
+
+    .icones {
+        gap: 10px;
+    }
+
+    .icones img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .coraline-footer {
+        width: calc(100% - 20px) !important;
+        max-width: 100% !important;
+        height: 600px !important;
+        margin: 40px 10px !important;
+        padding: 0 !important;
+        border-radius: 16px !important;
+        background-image: url('../public/images/coralineMobile.jpg') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+    }
+
+    /* Oculta a tag de imagem/vídeo antiga do desktop para não quebrar o layout mobile */
+    .coraline-bg,
+    .coraline-footer video,
+    .coraline-footer img {
+        display: none !important;
+    }
+
+    .coraline-bg {
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 16px !important;
+    }
+
+    .coraline-content {
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 16px !important;
+    }
+
+    .coraline-content h2 {
+        position: absolute !important;
+        bottom: 120px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: calc(100% - 40px) !important;
+        font-size: 13px !important;
+        letter-spacing: 2px !important;
+        text-align: center !important;
+        /* Texto centralizado */
+        box-sizing: border-box !important;
+    }
+
+    /* BOTÃO MAIS REDONDO, COM ALTURA E LARGURA AJUSTADAS */
+    .coraline-content .botao-coraline {
+        position: absolute !important;
+        bottom: 40px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+
+        width: 240px !important;
+        height: 52px !important;
+        border-radius: 9999px !important;
+
+    }
+
+    /* Bolinha interna do botão totalmente redonda */
+    .coraline-content .botao-coraline::before {
+        content: '' !important;
+        display: inline-block !important;
+        width: 16px !important;
+        height: 16px !important;
+        border-radius: 50% !important;
+        background: #02060d !important;
+        border: 2px solid #102a45 !important;
+        background-image: radial-gradient(circle, #4a7ebb 35%, transparent 40%) !important;
+        background-size: 5px 5px !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        flex-shrink: 0 !important;
     }
 }

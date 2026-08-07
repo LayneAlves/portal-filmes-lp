@@ -8,9 +8,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Montagu+Slab:wght@100;400&family=Raleway:wght@400;500&family=Cinzel:wght@400&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/animacoes.css">
 </head>
 
 <body>
@@ -59,15 +60,18 @@
         <section class="filmes-container">
 
             <section class="filme">
-                <img src="public/images/capa_alice.jpg" alt="">
+                <img src="public/images/capa_alice.jpg" alt="Alice no País das Maravilhas" data-tmdb-id="0">
             </section>
 
             <section class="filme">
-                <img src="public/images/capa_harry.jpg" alt="">
+                <img src="public/images/capa_harry.jpg" alt="Harry Potter" data-tmdb-id="0">
             </section>
 
             <section class="filme">
-                <img src="public/images/capa_piratas.jpg" alt="">
+                <img src="public/images/capa_piratas.jpg" alt="Piratas do Caribe" data-tmdb-id="0">
+            </section>
+            <section class="filme">
+                <img src="public/images//joaoPeFeijao.jpg" alt="João e o Pé de Feijão Mágico" data-tmdb-id="0">
             </section>
 
         </section>
@@ -78,7 +82,7 @@
         <h2>CRÔNICAS DE NÁRNIA</h2>
         <p>Esqueça tudo o que você conhece.</p>
         <p> O verdadeiro espetáculo começa quando você passa pelo fundo do guarda-roupa.</p>
-        <button class="assistir-btn">ASSISTIR</button>
+        <a href="https://www.primevideo.com/-/pt/detail/0HKDYXCBEM999O3UQNUD2Z3RWW" class="assistir-btn" data-tmdb-id="0">ASSISTIR</a>
     </section>
 
     <!-- Categorias -->
@@ -88,136 +92,46 @@
             <p>Selecionamos universos extraordinários para ir além da sua imaginação</p>
         </div>
         <div class="cards-container">
-            <img src="public/images/capa_noiva.jpg" alt="Cards de filmes" class="cards-svg">
-            <img src="public/images/capa_maos_tesoura.jpg" alt="Cards de filmes" class="cards-svg">
-            <img src="public/images/capa_frank.jpg" alt="Cards de filmes" class="cards-svg">
-            <img src="public/images/capa_fabrica.jpg" alt="Cards de filmes" class="cards-svg">
-            <img src="public/images/capa_peter.jpg" alt="Cards de filmes" class="cards-svg">
+            <img id="capa-noiva" src="public/images/capa_noiva.jpg" alt="A Noiva Cadáver" class="cards-svg" data-tmdb-id="0">
+            <img src="public/images/capa_maos_tesoura.jpg" alt="Edward Mãos de Tesoura" class="cards-svg" data-tmdb-id="0">
+            <img src="public/images/capa_frank.jpg" alt="Frankenweenie" class="cards-svg" data-tmdb-id="0">
+            <img id="capa-fabrica" src="public/images/capa_fabrica.jpg" alt="A Fantástica Fábrica de Chocolate" class="cards-svg" data-tmdb-id="0">
+            <img src="public/images/capa_peter.jpg" alt="Peter Pan" class="cards-svg" data-tmdb-id="0">
+            <img src="public/images/aliceEspelho.jpg" alt="Alice Através do Espelho" class="cards-svg" data-tmdb-id="0">
         </div>
     </section>
     <section class="spiderwick-hero">
         <video autoplay muted loop>
             <source src="public/images/spiderwick2.mp4" type="video/mp4">
         </video>
-        <button class="spiderwick-btn">AS CRÔNICAS DE SPIDERWICK</button>
+        <a href="https://www.primevideo.com/-/pt/detail/0H7HKSEBU3F5IIKCGQG2LTSTMI" class="spiderwick-btn" data-tmdb-id="0">AS CRÔNICAS DE SPIDERWICK</a>
     </section>
     <section class="onde-encontrar">
         <div class="container">
             <h1>QUER SABER ONDE ENCONTRAR SEUS FILMES FAVORITOS?</h1>
             <p>Explore e confira</p>
             <div class="filtros">
-                <button class="filtro ativo">TODOS</button>
-                <button class="filtro">DESENHOS</button>
-                <button class="filtro">REINOS</button>
-                <button class="filtro">FANTASIA</button>
+                <button class="filtro ativo" data-categoria="todos">TODOS</button>
+                <button class="filtro" data-categoria="desenhos">DESENHOS</button>
+                <button class="filtro" data-categoria="reinos">REINOS</button>
+                <button class="filtro" data-categoria="fantasia">FANTASIA</button>
             </div>
-            <div class="grade">
-                <div class="card">
-                    <div class="frente">
-                        <img src="public/images/criancas_peculiares.png" alt="As Crianças Peculiares">
-                        <h3>AS CRIANÇAS PECULIARES</h3>
-                    </div>
-                    <div class="verso">
-                        <p>DISPONÍVEL EM : </p>
-                        <section class="icones">
-                            <img src="public/images/netflix.svg" alt="Netflix">
-                            <img src="public/images/disney.svg" alt="Disney+">
-                            <img src="public/images/hbo.svg" alt="HBO">
-                        </section>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="frente">
-                        <img src="public/images/jack_esqueleto.png" alt="O Fantástico Mundo de Jack">
-                        <h3>O FANTÁSTICO MUNDO DE JACK</h3>
-                    </div>
-                    <div class="verso">
-                        <p>DISPONÍVEL EM : </p>
-                        <section class="icones">
-                            <img src="public/images/netflix.svg" alt="Netflix">
-                            <img src="public/images/disney.svg" alt="Disney+">
-                            <img src="public/images/hbo.svg" alt="HBO">
-                        </section>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="frente">
-                        <img src="public/images/malevola.jpg" alt="King Chicken">
-                        <h3>King Chicken</h3>
-                    </div>
-                    <div class="verso">
-                        <p>DISPONÍVEL EM : </p>
-                        <section class="icones">
-                            <img src="public/images/netflix.svg" alt="Netflix">
-                            <img src="public/images/disney.svg" alt="Disney+">
-                            <img src="public/images/hbo.svg" alt="HBO">
-                        </section>
-                    </div>
-                </div>
-            </div>
-            <div class="grade">
-                <div class="card">
-                    <div class="frente">
-                        <img src="public/images/abracadabra.jpg" alt="As Crianças Peculiares">
-                        <h3>AS CRIANÇAS PECULIARES</h3>
-                    </div>
-                    <div class="verso">
-                        <p>DISPONÍVEL EM : </p>
-                        <section class="icones">
-                            <img src="public/images/netflix.svg" alt="Netflix">
-                            <img src="public/images/disney.svg" alt="Disney+">
-                            <img src="public/images/hbo.svg" alt="HBO">
-                        </section>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="frente">
-                        <img src="public/images/magicoOZ.jpg" alt="O Fantástico Mundo de Jack">
-                        <h3>O FANTÁSTICO MUNDO DE JACK</h3>
-                    </div>
-                    <div class="verso">
-                        <p>DISPONÍVEL EM : </p>
-                        <section class="icones">
-                            <img src="public/images/netflix.svg" alt="Netflix">
-                            <img src="public/images/disney.svg" alt="Disney+">
-                            <img src="public/images/hbo.svg" alt="HBO">
-                        </section>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="frente">
-                        <img src="public/images/quebraNozes.jpg" alt="King Chicken">
-                        <h3>King Chicken</h3>
-                    </div>
-                    <div class="verso">
-                        <p>DISPONÍVEL EM : </p>
-                        <section class="icones">
-                            <img src="public/images/netflix.svg" alt="Netflix">
-                            <img src="public/images/disney.svg" alt="Disney+">
-                            <img src="public/images/hbo.svg" alt="HBO">
-                        </section>
-                    </div>
-                </div>
+            
+            <div class="grade" id="grade-filmes">
+                <p class="carregando">Carregando filmes...</p>
             </div>
         </div>
     </section>
 
     <section class="coraline-footer">
-        <div class="coraline-content">
-            <div class="coraline-Nome">
-                <img src="public/images/coraline.jpg" alt="">
-                <h2>Os olhos são a Janela da Alma</h2>
-                <section class="icones">
-                    <img src="public/images/netflix.svg" alt="Netflix">
-                    <img src="public/images/disney.svg" alt="Disney+">
-                    <img src="public/images/hbo.svg" alt="HBO">
-                </section>
-            </div>
-            <div class="coraline-logo">
-                <video src="public/images/bruxaVideo.mp4" autoplay loop muted alt="Bruxa de Coraline"></video>
-            </div>
-        </div>
+        <img class="coraline-bg" src="public/images/coraline.jpg" alt="Coraline Background">
 
+        <div class="coraline-content">
+            <h2>Os olhos são a Janela da Alma</h2>
+            <button class="botao-coraline" data-tmdb-id="0">
+                <span class="botao-coraline-texto">Encontrar o Outro Mundo</span>
+            </button>
+        </div>
     </section>
     <script src="js/main.js"></script>
 </body>
