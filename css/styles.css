@@ -911,6 +911,7 @@ img {
 .icones img {
     width: 50px;
     height: 50px;
+    border-radius: 50%;
 }
 
 
@@ -1031,7 +1032,7 @@ img {
             0px 0px 45px 0px rgba(5, 15, 26, 0.9),
             inset 0 2px 4px rgba(255, 255, 255, 0.05);
 
-        
+
         font-family: Georgia, 'Times New Roman', Times, serif;
         font-weight: 500;
         font-size: 13px;
@@ -1063,7 +1064,333 @@ img {
     }
 }
 
-@media (max-width: 480px) {
+
+/* RESPONSIVIDADE TABLET (768px – 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    /*
+       1. Hero principal
+       */
+    .hero {
+        position: relative;
+        top: auto;
+        left: auto;
+        height: clamp(400px, 50vw, 500px);
+        margin: 0;
+        padding: clamp(16px, 3vw, 24px);
+        
+    }
+
+    .titulo {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .frame1 {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin: 0;
+        max-width: min(560px, 85%);
+        gap: clamp(16px, 2.5vw, 24px);
+    }
+
+    .hero h2 {
+        font-size: clamp(30px, 4.5vw, 40px);
+    }
+
+    .hero p {
+        font-size: clamp(12px, 1.6vw, 14px);
+        width: 100%;
+        max-width: 400px;
+        letter-spacing: 3px;
+    }
+
+    .botao-explorar {
+        width: clamp(180px, 26vw, 220px);
+        height: clamp(40px, 6vw, 46px);
+        font-size: clamp(12px, 1.6vw, 14px);
+        margin: clamp(16px, 3vw, 20px) 0 0 0;
+    }
+
+    .botao-confira {
+        bottom: clamp(20px, 4vw, 32px);
+    }
+
+    .botao-confira span {
+        font-size: clamp(14px, 2vw, 18px);
+    }
+
+    /*
+       2. Mais Assistidos — mantém alinhamento horizontal
+       */
+    .mais_assistidos h1 {
+        font-size: clamp(26px, 3.5vw, 32px);
+       margin-top: 14px;
+       
+    }
+
+
+    .filmes-container {
+        flex-wrap: nowrap;
+        gap: clamp(12px, 2vw, 20px);
+        overflow-x: auto;
+        padding: 0 16px;
+         margin-top: 0;
+         animation: none;
+    }
+
+    .filme {
+        flex: 0 0 auto;
+        width: clamp(140px, 20vw, 180px);
+        height: clamp(210px, 30vw, 270px);
+    }
+
+    /*
+       3. Nárnia
+       */
+    .narnia-section {
+        width: calc(100% - 32px);
+        max-width: 100%;
+        height: clamp(400px, 50vw, 500px);
+        margin: 16px auto;
+        border-radius: 20px !important;
+        padding: clamp(16px, 3vw, 24px);
+        animation: none;
+        gap: 8px;
+    }
+
+    .narnia-section::before {
+        border-radius: 20px !important;
+    }
+
+    .narnia-section h2 {
+        font-size: clamp(22px, 3vw, 28px);
+        bottom: 124px;
+        left: clamp(20px, 3vw, 32px);
+    }
+
+    .narnia-section p {
+        font-size: clamp(11px, 1.4vw, 13px);
+        width: min(85%, 284px);
+        margin: 0;
+       line-height: 1.0
+    }
+
+    .assistir-btn {
+        width: clamp(150px, 22vw, 180px);
+        height: clamp(34px, 5vw, 40px);
+        font-size: clamp(13px, 1.8vw, 16px);
+        bottom: clamp(24px, 4vw, 32px);
+        padding: clamp(14px, 2vw, 18px);
+    }
+
+    /*
+       4. Entre Mundos — mantém alinhamento horizontal
+       */
+    .entre-mundos {
+        padding: clamp(32px, 5vw, 48px) 0;
+        animation: none;
+    }
+
+    .titulo-galeria {
+        padding: 0 clamp(16px, 4vw, 48px);
+    }
+
+    .entre-mundos h1 {
+        font-size: clamp(32px, 5vw, 44px);
+    }
+
+    .entre-mundos p {
+        font-size: clamp(14px, 2vw, 18px);
+    }
+
+    .cards-container {
+        gap: clamp(12px, 2vw, 20px);
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding: 0 16px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .entre-mundos .cards-svg,
+    .cards-container img {
+        height: clamp(220px, 32vw, 320px);
+        width: auto;
+        flex: 0 0 auto;
+        border-radius: clamp(16px, 3vw, 28px);
+    }
+
+    /*
+       5. Spiderwick
+       */
+    .spiderwick-hero {
+        width: calc(100% - 32px);
+        max-width: 100%;
+        height: clamp(400px, 50vw, 500px);
+        margin: 16px auto;
+        border-radius: 20px !important;
+        padding: clamp(16px, 3vw, 24px);
+    }
+
+    .spiderwick-hero::before {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px !important;
+    }
+
+    .spiderwick-hero video {
+        border-radius: 20px !important;
+    }
+
+    .spiderwick-btn {
+        width: clamp(260px, 38vw, 340px);
+        height: clamp(56px, 8vw, 64px);
+        font-size: clamp(16px, 2.2vw, 19px);
+        left: 50%;
+        bottom: clamp(20px, 4vw, 28px);
+        padding: clamp(16px, 2vw, 22px);
+    }
+
+    /*
+       6. Onde Encontrar — mantém centralizado vertical e horizontalmente
+       */
+    .onde-encontrar h1 {
+        font-size: clamp(30px, 4.5vw, 40px);
+    }
+
+    .onde-encontrar p {
+        font-size: clamp(16px, 2.2vw, 20px);
+    }
+
+    .filtros {
+        flex-wrap: wrap;
+        gap: clamp(8px, 1.5vw, 14px);
+    }
+
+    .filtro {
+        padding: clamp(8px, 1.5vw, 10px) clamp(16px, 3vw, 20px);
+        font-size: clamp(13px, 1.6vw, 15px);
+    }
+
+    .grade {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        max-width: 700px;
+        margin: 0 auto;
+        gap: clamp(16px, 2.5vw, 24px);
+    }
+
+    .card {
+        height: clamp(320px, 42vw, 420px);
+    }
+
+    /*
+       7. Coraline Footer
+       */
+    .coraline-footer {
+        width: calc(100% - 32px);
+        height: clamp(400px, 50vw, 500px);
+        margin: 16px auto;
+        padding: clamp(24px, 4vw, 40px);
+        border-radius: 20px;
+    }
+
+    .coraline-content h2 {
+        font-size: clamp(13px, 1.8vw, 16px);
+        bottom: clamp(70px, 11vw, 100px);
+        left: clamp(20px, 3vw, 32px);
+        max-width: calc(100% - 64px);
+        letter-spacing: 3px;
+        margin-bottom: 12px;
+    }
+
+    .coraline-content .botao-coraline {
+        width: clamp(160px, 22vw, 199px);
+        height: clamp(48px, 7vw, 58px);
+        left: clamp(20px, 4vw, 40px);
+        bottom: clamp(28px, 4.5vw, 48px);
+        font-size: clamp(11px, 1.4vw, 13px);
+    }
+}
+
+/* PONTE DESKTOP MÉDIO (1025px – 1799px)*/
+@media (min-width: 1025px) and (max-width: 1799px) {
+
+    .narnia-section {
+        width: calc(100% - 88px);
+        height: clamp(500px, 45vw, 720px);
+        border-radius: clamp(20px, 2vw, 24px) !important;
+    }
+
+    .narnia-section::before {
+        border-radius: clamp(20px, 2vw, 24px) !important;
+    }
+
+    .narnia-section h2 {
+        font-size: clamp(28px, 2.2vw, 32px);
+        bottom: clamp(80px, 9vw, 134px);
+    }
+
+    .narnia-section p {
+        font-size: clamp(13px, 1.1vw, 16px);
+        width: min(90%, 500px);
+    }
+
+    .spiderwick-hero {
+        width: calc(100% - 88px);
+        height: clamp(500px, 45vw, 720px);
+        border-radius: clamp(20px, 2vw, 24px) !important;
+    }
+
+    .spiderwick-btn {
+        left: 50%;
+        width: clamp(340px, 24vw, 430px);
+        height: clamp(64px, 5vw, 79px);
+        font-size: clamp(19px, 1.6vw, 24px);
+    }
+
+    .filmes-container {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: clamp(20px, 3vw, 40px);
+    }
+
+    .filme {
+        flex: 0 0 auto;
+        width: clamp(200px, 20vw, 300px);
+        height: clamp(300px, 30vw, 450px);
+    }
+
+    .cards-container {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+    .coraline-footer {
+        width: calc(100% - 88px);
+        height: clamp(500px, 45vw, 720px);
+        padding: clamp(40px, 6vw, 80px);
+        border-radius: clamp(20px, 3vw, 44px);
+    }
+
+    .coraline-content h2 {
+        font-size: clamp(14px, 1.2vw, 18px);
+        bottom: clamp(80px, 9vw, 124px);
+    }
+
+    .coraline-content .botao-coraline {
+        left: 50%;
+        transform: translateX(-50%);
+        width: clamp(170px, 14vw, 199px);
+        height: clamp(48px, 4vw, 58px);
+        bottom: clamp(32px, 4vw, 48px);
+    }
+}
+
+@media (max-width: 767px) {
 
     /*Regras Gerais*/
     html,
@@ -1097,10 +1424,15 @@ img {
        */
     header,
     nav {
-        width: calc(100% - 64px);
-        margin: 0 32px;
-        padding: 15px 0;
-        box-sizing: border-box;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: auto !important;
+        margin: 0 32px !important;
+        padding: 15px 0 !important;
+        box-sizing: border-box !important;
+    
     }
 
     nav.nav ul.menu {
@@ -1116,7 +1448,7 @@ img {
     }
 
     nav.nav ul.menu li {
-        font-size: 11px;
+        font-size: 14px;
         white-space: nowrap;
     }
 
@@ -1267,10 +1599,10 @@ img {
 
     .narnia-section h2 {
         font-size: 24px;
-        position: relative !important;
+        position: static !important;
         bottom: auto !important;
         align-items: center;
-        text-align: left;
+        text-align: center;
         margin: 0 0 10px 0 !important;
 
     }
@@ -1454,6 +1786,7 @@ img {
     .icones img {
         width: 32px;
         height: 32px;
+        border-radius: 50%;
     }
 
     .coraline-footer {

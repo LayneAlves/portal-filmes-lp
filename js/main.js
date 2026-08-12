@@ -1,4 +1,3 @@
-
 // CONFIGURAÇÃO DA API (TMDb - The Movie Database)
 
 const IMG_BASE = "https://image.tmdb.org/t/p/w200"; 
@@ -47,24 +46,6 @@ const filmes = [
 ];
 
 
-const buscaPorProvedor = {
-    "Netflix": (titulo) => `https://www.netflix.com/search?q=${encodeURIComponent(titulo)}`,
-    "Amazon Prime Video": (titulo) => `https://www.primevideo.com/search/ref=atv_nb_sr?phrase=${encodeURIComponent(titulo)}`,
-    "Disney Plus": (titulo) => `https://www.disneyplus.com/search?q=${encodeURIComponent(titulo)}`,
-    "HBO Max": (titulo) => `https://play.max.com/search?q=${encodeURIComponent(titulo)}`,
-    "Max": (titulo) => `https://play.max.com/search?q=${encodeURIComponent(titulo)}`,
-    "Apple TV": (titulo) => `https://tv.apple.com/search?term=${encodeURIComponent(titulo)}`,
-    "Apple TV Plus": (titulo) => `https://tv.apple.com/search?term=${encodeURIComponent(titulo)}`,
-    "Globoplay": (titulo) => `https://globoplay.globo.com/busca/?q=${encodeURIComponent(titulo)}`,
-    "Paramount Plus": (titulo) => `https://www.paramountplus.com/search/?q=${encodeURIComponent(titulo)}`,
-};
-
-function linkDaPlataforma(nomeProvedor, titulo) {
-    const gerarLink = buscaPorProvedor[nomeProvedor];
-    return gerarLink ? gerarLink(titulo) : null;
-}
-
-
 async function irParaPlataforma(tmdbId) {
     if (!tmdbId || tmdbId === "0") {
         console.warn("Este elemento ainda não tem um TMDb ID configurado.");
@@ -101,7 +82,7 @@ function ativarRedirecionamentoFilmes() {
 // BUSCA AS PLATAFORMAS DE STREAMING DE UM FILME
 
 async function buscarProvedores(tmdbId) {
-    if (!tmdbId) return [];
+    if (!tmdbId) return { provedores: [], link: null };
 
     try {
         const res = await fetch(`/api/watch-providers/${tmdbId}`);
@@ -109,20 +90,22 @@ async function buscarProvedores(tmdbId) {
         if (!res.ok) throw new Error(`Erro na API: ${res.status}`);
 
         const data = await res.json();
-        return data.results?.[PAIS]?.flatrate || [];
+        return {
+            provedores: data.results?.[PAIS]?.flatrate || [],
+            link: data.results?.[PAIS]?.link || null
+        };
     } catch (erro) {
         console.error(`Erro ao buscar provedores do filme ${tmdbId}:`, erro);
-        return [];
+        return { provedores: [], link: null };
     }
 }
 
 
 // MONTA O HTML DE UM CARD
 
-function criarCardHTML(filme, provedores) {
+function criarCardHTML(filme, provedores, link) {
     const icones = provedores
         .map(p => {
-            const link = linkDaPlataforma(p.provider_name, filme.titulo);
             const img = `<img src="${IMG_BASE}${p.logo_path}" alt="${p.provider_name}" title="Assistir na ${p.provider_name}">`;
             return link
                 ? `<a href="${link}" target="_blank" rel="noopener">${img}</a>`
@@ -155,8 +138,8 @@ async function renderizarFilmes() {
 
     const cardsHTML = await Promise.all(
         filmes.map(async filme => {
-            const provedores = await buscarProvedores(filme.id);
-            return criarCardHTML(filme, provedores);
+            const { provedores, link } = await buscarProvedores(filme.id);
+            return criarCardHTML(filme, provedores, link);
         })
     );
 
