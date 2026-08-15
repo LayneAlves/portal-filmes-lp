@@ -1,29 +1,94 @@
 // CONFIGURAÇÃO DA API (TMDb - The Movie Database)
 
-const IMG_BASE = "https://image.tmdb.org/t/p/w200"; 
-const PAIS = "BR"; 
+const IMG_BASE = "https://image.tmdb.org/t/p/w200";
+const PAIS = "BR";
 
 
 // LISTA DE FILMES DA SEÇÃO "ONDE ENCONTRAR"
 
 const filmes = [
+    // DESENHOS
+    {
+        id: 9479,
+        titulo: "O FANTÁSTICO MUNDO DE JACK",
+        categoria: "desenhos",
+        poster: "public/images/jack_esqueleto.png"
+    },
+    {
+        id: 3933,
+        titulo: "A NOIVA CADÁVER",
+        categoria: "desenhos",
+        poster: "public/images/capa_noiva.jpg"
+    },
+    {
+        id: 62214,
+        titulo: "FRANKENWEENIE",
+        categoria: "desenhos",
+        poster: "public/images/frankenweenie.desenho.jpg"
+    },
+    {
+        id: 14836,
+        titulo: "CORALINE E O MUNDO SECRETO",
+        categoria: "desenhos",
+        poster: "public/images/coraline.desenho.jpg"
+    },
+    {
+        id: 9297,
+        titulo: "CASA MONSTRO",
+        categoria: "desenhos",
+        poster: "public/images/casaMonstro.jpg"
+    },
+    {
+        id: 481084,
+        titulo: "A FAMÍLIA ADDAMS",
+        categoria: "desenhos",
+        poster: "public/images/familiaAddamns.jpg"
+    },
+
+    // REINOS
+    {
+        id: 9992,
+        titulo: "ARTHUR E OS MINIMOYS",
+        categoria: "reinos",
+        poster: "public/images/arthur.jpg"
+    },
+    {
+        id: 224141,
+        titulo: "CAMINHOS DA FLORESTA",
+        categoria: "reinos",
+        poster: "public/images/florestaEncantada.jpg"
+    },
+    {
+        id: 1265,
+        titulo: "PONTE PARA TERABÍTIA",
+        categoria: "reinos",
+        poster: "public/images/capa_terabitia.jpg"
+    },
+    {
+        id: 321612,
+        titulo: "A BELA E A FERA",
+        categoria: "reinos",
+        poster: "public/images/belaFera.jpg"
+    },
+    {
+        id: 122917,
+        titulo: "O HOBBIT: A BATALHA DOS CINCO EXÉRCITOS",
+        categoria: "reinos",
+        poster: "public/images/hobbit.jpg"
+    },
+    {
+        id: 426543,
+        titulo: "O QUEBRA-NOZES",
+        categoria: "reinos",
+        poster: "public/images/quebraNozes.jpg"
+    },
+
+    // FANTASIA
     {
         id: 283366,
         titulo: "AS CRIANÇAS PECULIARES",
         categoria: "fantasia",
         poster: "public/images/criancas_peculiares.png"
-    },
-    {
-        id: 9479,
-        titulo: "O FANTÁSTICO MUNDO DE JACK",
-        categoria: "fantasia",
-        poster: "public/images/jack_esqueleto.png"
-    },
-    {
-        id: 102651,
-        titulo: "MALEVOLA",
-        categoria: "desenhos",
-        poster: "public/images/malevola.jpg"
     },
     {
         id: 10439,
@@ -32,16 +97,28 @@ const filmes = [
         poster: "public/images/abracadabra.jpg"
     },
     {
-        id: 68728,
-        titulo: "O MÁGICO DE OZ",
+        id: 8204,
+        titulo: "AS CRÔNICAS DE SPIDERWICK",
         categoria: "fantasia",
-        poster: "public/images/magicoOZ.jpg"
+        poster: "public/images/spiderwick.mobile.jpg"
     },
     {
-        id: 426543,
-        titulo: "O QUEBRA-NOZES",
-        categoria: "reinos",
-        poster: "public/images/quebraNozes.jpg"
+        id: 62213,
+        titulo: "SOMBRAS DA NOITE",
+        categoria: "fantasia",
+        poster: "public/images/sombrasNoite.jpg"
+    },
+    {
+        id: 11283,
+        titulo: "NANNY MCPHEE: A BABÁ ENCANTADA",
+        categoria: "fantasia",
+        poster: "public/images/baba.jpg"
+    },
+    {
+        id: 102651,
+        titulo: "MALEVOLA",
+        categoria: "fantasia",
+        poster: "public/images/malevola.jpg"
     }
 ];
 
@@ -149,28 +226,28 @@ async function renderizarFilmes() {
 
 // SCROLL SUAVE + DESTAQUE (PULSO) NUM ELEMENTO
 
-function destacarElemento(elemento) {
-    if (!elemento) return;
+// function destacarElemento(elemento) {
+//     if (!elemento) return;
 
-    elemento.scrollIntoView({ behavior: "smooth", block: "center" });
+//     elemento.scrollIntoView({ behavior: "smooth", block: "center" });
 
-    // espera o scroll suave terminar antes de pulsar
-    setTimeout(() => {
-        elemento.classList.add("destaque-filme");
-        elemento.addEventListener(
-            "animationend",
-            () => elemento.classList.remove("destaque-filme"),
-            { once: true }
-        );
-    }, 700);
-}
+//     // espera o scroll suave terminar antes de pulsar
+//     setTimeout(() => {
+//         elemento.classList.add("destaque-filme");
+//         elemento.addEventListener(
+//             "animationend",
+//             () => elemento.classList.remove("destaque-filme"),
+//             { once: true }
+//         );
+//     }, 700);
+// }
 
 // Cada categoria "aponta" pra um elemento específico da página
-const alvoPorCategoria = {
-    desenhos: () => document.getElementById("capa-noiva"),
-    reinos: () => document.querySelector(".narnia-section"),
-    fantasia: () => document.getElementById("capa-fabrica"),
-};
+// const alvoPorCategoria = {
+//     desenhos: () => document.getElementById("capa-noiva"),
+//     reinos: () => document.querySelector(".narnia-section"),
+//     fantasia: () => document.getElementById("capa-fabrica"),
+// };
 
 
 // FILTRO POR CATEGORIA (botões TODOS/DESENHOS/REINOS/FANTASIA)
@@ -192,8 +269,8 @@ function ativarFiltros() {
                 card.style.display = mostrar ? "" : "none";
             });
 
-            const obterAlvo = alvoPorCategoria[categoria];
-            if (obterAlvo) destacarElemento(obterAlvo());
+            // const obterAlvo = alvoPorCategoria[categoria];
+            // if (obterAlvo) destacarElemento(obterAlvo());
         });
     });
 }
@@ -213,10 +290,134 @@ function ativarPopUp() {
 }
 
 
+async function buscarDetalhesFilme(tmdbId) {
+    try {
+        const res = await fetch(`/api/movie-details/${tmdbId}`);
+        if (!res.ok) throw new Error(`Erro na API: ${res.status}`);
+        return await res.json();
+    } catch (erro) {
+        console.error(`Erro ao buscar detalhes do filme ${tmdbId}:`, erro);
+        return null;
+    }
+}
+
+async function abrirModalFilme(tmdbId) {
+    const overlay = document.getElementById("modalFilmeOverlay");
+    const poster = document.getElementById("modalFilmePoster");
+    const titulo = document.getElementById("modalFilmeTitulo");
+    const sinopse = document.getElementById("modalFilmeSinopse");
+    const icones = document.getElementById("modalFilmeIcones");
+
+    // Reseta o conteúdo e já abre o modal (feedback imediato pro usuário)
+    poster.src = "";
+    titulo.textContent = "";
+    sinopse.textContent = "Carregando sinopse...";
+    icones.innerHTML = "";
+    overlay.classList.add("aberto");
+    document.body.classList.add("modalFilme-travado");
+
+    const [detalhes, { provedores, link }] = await Promise.all([
+        buscarDetalhesFilme(tmdbId),
+        buscarProvedores(tmdbId)
+    ]);
+
+    if (detalhes) {
+        poster.src = detalhes.poster_path
+            ? `https://image.tmdb.org/t/p/w500${detalhes.poster_path}`
+            : "";
+        poster.alt = detalhes.title || "";
+        titulo.textContent = detalhes.title || "";
+        sinopse.textContent = detalhes.overview || "Sinopse não disponível.";
+    } else {
+        sinopse.textContent = "Não foi possível carregar os detalhes desse filme agora.";
+    }
+
+    icones.innerHTML = provedores
+        .map(p => {
+            const img = `<img src="${IMG_BASE}${p.logo_path}" alt="${p.provider_name}" title="Assistir na ${p.provider_name}">`;
+            return link
+                ? `<a href="${link}" target="_blank" rel="noopener">${img}</a>`
+                : img;
+        })
+        .join("") || "<p>Sem streaming disponível</p>";
+}
+
+function fecharModalFilme() {
+    document.getElementById("modalFilmeOverlay").classList.remove("aberto");
+    document.body.classList.remove("modalFilme-travado");
+}
+
+function ativarModalFilmes() {
+    document.querySelectorAll("[data-modal-id]").forEach(elemento => {
+        elemento.addEventListener("click", () => {
+            abrirModalFilme(elemento.dataset.modalId);
+        });
+    });
+
+    document.getElementById("modalFilmeFechar").addEventListener("click", fecharModalFilme);
+    document.getElementById("modalFilmeOverlay").addEventListener("click", (e) => {
+        if (e.target.id === "modalFilmeOverlay") fecharModalFilme();
+    });
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") fecharModalFilme();
+    });
+}
+// ROLAGEM AUTOMÁTICA E 6 BOLINHAS POR BLOCOS (ENTRE MUNDOS - TABLET)
+
+function ativarCarrosselEntreMundos() {
+    const container = document.querySelector('.entre-mundos .cards-container');
+    if (!container) return;
+
+    // Cria ou reutiliza o container das bolinhas
+    let indicadores = container.parentNode.querySelector('.entre-mundos-indicadores');
+    if (!indicadores) {
+        indicadores = document.createElement('div');
+        indicadores.className = 'entre-mundos-indicadores';
+        container.parentNode.appendChild(indicadores);
+    }
+    indicadores.innerHTML = '';
+
+    const totalBolinhas = 6;
+    let currentIndex = 0;
+
+    // Cria as bolinhas e já adiciona o evento de clique
+    const dots = Array.from({ length: totalBolinhas }, (_, i) => {
+        const dot = document.createElement('span');
+        if (i === 0) dot.classList.add('ativo');
+        
+        dot.addEventListener('click', () => irParaBloco(i));
+        indicadores.appendChild(dot);
+        return dot;
+    });
+
+    function irParaBloco(index) {
+        currentIndex = index;
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        
+        if (maxScroll > 0) {
+            container.scrollTo({
+                left: (maxScroll / (totalBolinhas - 1)) * currentIndex,
+                behavior: 'smooth'
+            });
+        }
+
+        dots.forEach((dot, i) => dot.classList.toggle('ativo', i === currentIndex));
+    }
+
+    // Rolagem automática a cada 3 segundos (apenas em tablets)
+    setInterval(() => {
+        if (window.innerWidth >= 768 && window.innerWidth <= 1024) {
+            irParaBloco((currentIndex + 1) % totalBolinhas);
+        }
+    }, 3000);
+}
+
 // INICIALIZAÇÃO
 
 document.addEventListener("DOMContentLoaded", () => {
     ativarPopUp();
     ativarRedirecionamentoFilmes();
+    ativarModalFilmes();
+    ativarCarrosselEntreMundos();
     renderizarFilmes().then(ativarFiltros);
 });

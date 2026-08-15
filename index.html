@@ -19,27 +19,19 @@
     <section class="popUp-container" id="popUpOverlay">
         <section class="popUp-box">
             <h2>AVISO IMPORTANTE</h2>
-            <p>Este site é um projeto sem fins lucrativos, feito para fins acadêmicos.</p>
+            <p>Este site é um projeto sem fins lucrativos, feito para objetivos acadêmicos.</p>
             <p>Todas as imagens pertencem aos seus respectivos autores.</p>
             <button id="fecharPopUp">ENTENDI</button>
         </section>
     </section>
-    <nav class="nav">
-        <!-- <div class="logo">LOGO</div> -->
-        <ul class="menu">
-            <li>EXPLORAR</li>
-            <li>COLEÇÕES</li>
-            <li>FAVORITOS</li>
-            <li>ENTRAR</li>
-        </ul>
-    </nav>
+
 
     <section class="hero">
         <div class="titulo">
             <div class="frame1">
                 <h2>BRANCA DE NEVE</h2>
                 <p>Seus clássicos inesqueciveis a um clique de distância. Viaje por esse reino mágico !</p>
-                <button class="botao-explorar">EXPLORAR AGORA</button>
+                
             </div>
         </div>
         <div class="botao-confira">
@@ -60,7 +52,7 @@
         <section class="filmes-container">
 
             <section class="filme">
-                <img src="public/images/capa_alice.jpg" alt="Alice no País das Maravilhas" data-tmdb-id="0">
+                <img src="public/images/capa_alice.jpg" alt="Alice no País das Maravilhas" data-modal-id="12155">
             </section>
 
             <section class="filme">
@@ -133,6 +125,25 @@
             </button>
         </div>
     </section>
+    <!-- MODAL DE PREVIEW DO FILME -->
+    <section class="modalFilme-overlay" id="modalFilmeOverlay">
+        <div class="modalFilme-box">
+            <button class="modalFilme-fechar" id="modalFilmeFechar" aria-label="Fechar">&times;</button>
+
+            <div class="modalFilme-conteudo">
+                <img class="modalFilme-poster" id="modalFilmePoster" src="" alt="">
+
+                <div class="modalFilme-info">
+                    <h2 id="modalFilmeTitulo"></h2>
+                    <p class="modalFilme-sinopse" id="modalFilmeSinopse">Carregando sinopse...</p>
+
+                    <p class="modalFilme-disponivel">DISPONÍVEL EM:</p>
+                    <section class="modalFilme-icones" id="modalFilmeIcones"></section>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script src="js/main.js"></script>
 </body>
 

@@ -73,8 +73,9 @@ p {
     border: none;
     background: rgba(255, 255, 255, 0.838);
     margin-top: 12px;
-    width: 84px;
-    height: 24px;
+    width: 184px;
+    height: 38px;
+    border-radius: 24px;
     font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, serif, serif;
     font-weight: 300;
     display: flex;
@@ -344,17 +345,47 @@ nav {
     justify-content: center;
     align-items: stretch;
     gap: 32px;
+}
 
+.cards-container {
+    /* Junta a entrada com a nova animação controlada por variáveis */
+    animation:
+        mundosSurgindo 1s ease-out forwards,
+        ingredientFloat 0.8s ease-in-out infinite;
 
-    animation: mundosSurgindo;
-    animation-timeline: view();
+    /* Junta a entrada com a nova animação controlada por variáveis */
+    animation:
+        mundosSurgindo 1s ease-out forwards,
+        ingredientFloat 3s ease-in-out infinite;
+
+    /* Aplica o atraso baseado no índice de cada card */
+    animation-delay:
+        calc(0.1s * var(--stagger-index, 0)),
+        calc(0.1s * var(--stagger-index, 0) + 1s);
 }
 
 @keyframes mundosSurgindo {
     from {
         opacity: 0;
         scale: 0.8;
-        transform: translate(-300px);
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes ingredientFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+        /* Mantive a flutuação mais alta que pediu antes */
     }
 }
 
@@ -813,14 +844,14 @@ img {
 
     animation: narniaSurgindo;
     animation-timeline: view();
-    animation-range: entry 0% cover 50%;
+    animation-range: entry 0% cover 25%;
 }
 
 @keyframes narniaSurgindo {
     from {
         opacity: 0;
-        filter: blur(15px) grayscale(100%);
-        scale: .5;
+        filter: blur(5px) grayscale(100%);
+        scale: 0.1;
     }
 
 }
@@ -1078,7 +1109,7 @@ img {
         height: clamp(400px, 50vw, 500px);
         margin: 0;
         padding: clamp(16px, 3vw, 24px);
-        
+
     }
 
     .titulo {
@@ -1128,8 +1159,8 @@ img {
        */
     .mais_assistidos h1 {
         font-size: clamp(26px, 3.5vw, 32px);
-       margin-top: 14px;
-       
+        margin-top: 14px;
+
     }
 
 
@@ -1138,8 +1169,8 @@ img {
         gap: clamp(12px, 2vw, 20px);
         overflow-x: auto;
         padding: 0 16px;
-         margin-top: 0;
-         animation: none;
+        margin-top: 0;
+        animation: none;
     }
 
     .filme {
@@ -1176,7 +1207,7 @@ img {
         font-size: clamp(11px, 1.4vw, 13px);
         width: min(85%, 284px);
         margin: 0;
-       line-height: 1.0
+        line-height: 1.0
     }
 
     .assistir-btn {
@@ -1188,32 +1219,24 @@ img {
     }
 
     /*
-       4. Entre Mundos — mantém alinhamento horizontal
+       4. Entre Mundos — Remove trilho de rolagem e adiciona indicadores
        */
     .entre-mundos {
         padding: clamp(32px, 5vw, 48px) 0;
-        animation: none;
-    }
-
-    .titulo-galeria {
-        padding: 0 clamp(16px, 4vw, 48px);
-    }
-
-    .entre-mundos h1 {
-        font-size: clamp(32px, 5vw, 44px);
-    }
-
-    .entre-mundos p {
-        font-size: clamp(14px, 2vw, 18px);
+        animation: none !important;
+        position: relative;
     }
 
     .cards-container {
         gap: clamp(12px, 2vw, 20px);
-        overflow-x: auto;
+        overflow-x: hidden !important;
+        /* Remove o trilho/barra de rolagem */
         flex-wrap: nowrap;
         justify-content: flex-start;
         padding: 0 16px;
-        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        /* Deixa a transição suave */
+        animation: none;
     }
 
     .entre-mundos .cards-svg,
@@ -1222,6 +1245,27 @@ img {
         width: auto;
         flex: 0 0 auto;
         border-radius: clamp(16px, 3vw, 28px);
+    }
+
+    /* Estilo para os indicadores em bolinhas (Dots) */
+    .entre-mundos-indicadores {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .entre-mundos-indicadores span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .entre-mundos-indicadores span.ativo {
+        background-color: #ffffff;
     }
 
     /*
@@ -1432,7 +1476,7 @@ img {
         margin: 0 32px !important;
         padding: 15px 0 !important;
         box-sizing: border-box !important;
-    
+
     }
 
     nav.nav ul.menu {
@@ -1657,6 +1701,8 @@ img {
         margin-bottom: 30px;
     }
 
+    /* Modal de Preview do Filme */
+
     .cards-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -1666,6 +1712,7 @@ img {
         overflow: hidden;
         justify-content: center;
         align-items: center;
+        animation: none;
     }
 
     .cards-svg,
@@ -1862,4 +1909,186 @@ img {
         background-position: center !important;
         flex-shrink: 0 !important;
     }
+}
+
+/* Modal de Preview do Filme */
+
+.modalFilme-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(8, 8, 8, 0.75);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.modalFilme-overlay.aberto {
+    display: flex;
+}
+
+body.modalFilme-travado {
+    overflow: hidden;
+}
+
+.modalFilme-box {
+    background-color: rgba(2, 56, 89, 0.891);
+    ;
+    border-radius: 24px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.modalFilme-fechar {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    line-height: 1;
+    color: #FFFFFF;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.modalFilme-conteudo {
+    display: flex;
+    gap: 24px;
+    padding: 32px;
+}
+
+.modalFilme-poster {
+    width: 220px;
+    min-width: 220px;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.modalFilme-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* centraliza horizontalmente os filhos */
+    text-align: center;
+}
+
+.modalFilme-info h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #ffffffd9;
+    margin: 0 0 16px;
+    font-size: 28px;
+    align-items: center;
+}
+
+.modalFilme-sinopse {
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.8px;
+    /* Afasta um pouco as letras para dar elegância e legibilidade ao texto menor */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
+    text-align: center;
+    color: #ffffffb2;
+    margin: 0 0 24px;
+
+}
+
+.modalFilme-disponivel {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #ffffffb8;
+    font-weight: bold;
+    margin: 0 0 8px;
+    margin-top: 50px;
+}
+
+.modalFilme-icones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.modalFilme-icones img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+    .modalFilme-conteudo {
+        flex-direction: column;
+
+    }
+
+    html.modalFilme-travado,
+    body.modalFilme-travado {
+        overflow: hidden !important;
+        overflow-y: hidden !important;
+        height: 100vh !important;
+        position: relative !important;
+    }
+
+    .modalFilme-poster {
+        width: 100%;
+        min-width: 0;
+    }
+
+    /* DESLIGA O COMPORTAMENTO DE ALTURA DO DESKTOP */
+    .modalFilme-info {
+        display: block !important;
+        height: auto !important;
+        padding: 16px;
+    }
+
+    .modalFilme-info h2 {
+        margin: 0 0 12px;
+
+    }
+
+    .modalFilme-sinopse {
+        font-size: 14px;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 0 12px !important;
+        margin-bottom: 32px !important;
+    }
+
+    .modalFilme-disponivel {
+        margin-top: 0 !important;
+
+        text-align: center;
+    }
+
+    .modalFilme-icones {
+        margin-top: 0 !important;
+        justify-content: center;
+    }
+
+    /* Ajusta a caixa do modal para permitir a rolagem vertical */
+    .modalFilme-box {
+        max-height: 85vh !important;
+        overflow-y: auto !important;
+        height: auto;
+        margin: 10px;
+        width: calc(100% - 20px);
+        /* Garante que não ultrapasse as bordas da tela */
+        margin-bottom: 70px !important;
+    }
+
+    .modalFilme-conteudo {
+        max-height: none !important;
+        height: auto !important;
+        margin: 0;
+
+    }
+
 }
